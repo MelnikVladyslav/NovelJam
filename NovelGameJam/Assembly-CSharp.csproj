@@ -52,6 +52,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Class\GolovniyPerson.cs" />
+    <Compile Include="Assets\Script\Class\PersonClass.cs" />
+    <Compile Include="Assets\Script\Class\TextClass.cs" />
+    <Compile Include="Assets\Script\Glava1.cs" />
     <Compile Include="Assets\Script\StartScript.cs" />
     <Reference Include="UnityEngine.UI">
       <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
