@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: dfd3b778df8215640995b0c3eb692881
+timeCreated: 1675271239
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Playfair Display
+  fontNames:
+  - Playfair Display
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 467d2ae15e2230f4b9467fb4a4ac5395, type: 3}
+  - {fileID: 12800000, guid: 58a68ca4751329a4b9e242431b8c9070, type: 3}
+  - {fileID: 12800000, guid: 8a1e739624aa82243b7e4014e05c4b9e, type: 3}
+  - {fileID: 12800000, guid: aa6c07a8e509dc242bf006609907b8fb, type: 3}
+  - {fileID: 12800000, guid: a5b8b45948205054eb6d805cf964328c, type: 3}
+  - {fileID: 12800000, guid: 3a39633af311fdf4fbaeeab540fc4a76, type: 3}
+  - {fileID: 12800000, guid: 1cf201ea49bbfc4459a1fcbf173b29c5, type: 3}
+  - {fileID: 12800000, guid: 9c9c9bdce73537446a9490c86231fd79, type: 3}
+  - {fileID: 12800000, guid: 21d50a3d7697f064eaad1c04be067ae3, type: 3}
+  - {fileID: 12800000, guid: 5792b6ee3d589ac4f83088247e3de536, type: 3}
+  - {fileID: 12800000, guid: 1aed516f34e42bc40a6668d7e940e23c, type: 3}
+  - {fileID: 12800000, guid: 839898cf1ac65d147bdcb4fbd94163d4, type: 3}
+  - {fileID: 12800000, guid: 5fb41bff48efc38458d2351f953dc609, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

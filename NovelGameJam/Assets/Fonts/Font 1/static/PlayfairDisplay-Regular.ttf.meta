@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 21d50a3d7697f064eaad1c04be067ae3
+timeCreated: 1675271239
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Playfair Display
+  fontNames:
+  - Playfair Display
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1cf201ea49bbfc4459a1fcbf173b29c5, type: 3}
+  - {fileID: 12800000, guid: 1aed516f34e42bc40a6668d7e940e23c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

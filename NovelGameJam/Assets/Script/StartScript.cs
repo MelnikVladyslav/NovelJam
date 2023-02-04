@@ -1,6 +1,7 @@
 ﻿using Assets.Script.Class;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,22 +12,24 @@ public class StartScript : MonoBehaviour {
     public Text WordAutor;
 
 	//Persons
-	public GolovniyPerson Person = new GolovniyPerson() 
-	{
-		Name = "Річард", 
-		colorName = new Color(232, 181, 39), 
-		Year = 25
-	};
+	public GolovniyPerson Person = new GolovniyPerson();
 	public List<PersonClass> ListPersons = new List<PersonClass>();
 
 	//Prolog
 	public List<TextClass> PrologTexts = new List<TextClass>();
-    int i = 0;
+    int i = 1;
 	public bool isEnd = false;
 
     // Use this for initialization
     void Start () 
 	{
+		Person = new GolovniyPerson()
+		{
+			Name = "Річард",
+			colorName = new Color(232, 181, 39),
+			Year = 25
+		};
+
 		//Insert
 		PrologTexts = new List<TextClass>() 
 		{
@@ -43,13 +46,14 @@ public class StartScript : MonoBehaviour {
 			//2
 			new TextClass()
             {
-                text = "Особисто я ще не виришив, тому прошу допомогти мені. Тож…"
+                text = "Особисто я ще не вирішив, тому прошу допомогти мені. Тож…"
             }
         };
 
 		//Prolog
 		PanelNvl.gameObject.SetActive(true);
-	}
+        WordAutor.text += PrologTexts[0].text + "\n" + "\n";
+    }
 	
 	// Update is called once per frame
 	void Update () 
