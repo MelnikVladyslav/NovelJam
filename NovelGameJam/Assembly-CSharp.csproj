@@ -51,11 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\Class\Game.cs" />
      <Compile Include="Assets\Script\Class\GolovniyPerson.cs" />
      <Compile Include="Assets\Script\Class\PersonClass.cs" />
      <Compile Include="Assets\Script\Class\TextClass.cs" />
      <Compile Include="Assets\Script\Class\TextWithVuborsClass.cs" />
      <Compile Include="Assets\Script\Glava1.cs" />
+     <Compile Include="Assets\Script\Glava1Load.cs" />
+     <Compile Include="Assets\Script\Load.cs" />
+     <Compile Include="Assets\Script\MenuScript.cs" />
      <Compile Include="Assets\Script\StartScript.cs" />
      <None Include="Assets\Fonts\Font 1\OFL.txt" />
      <None Include="Assets\Fonts\Font 1\README.txt" />

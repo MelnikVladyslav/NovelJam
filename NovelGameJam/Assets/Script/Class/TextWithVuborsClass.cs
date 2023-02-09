@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Script.Class
 {
+    [Serializable]
     public class TextWithVuborsClass : TextClass
     {
         public string OneAnswer;

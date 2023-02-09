@@ -1,8 +1,9 @@
 ﻿using Assets.Script.Class;
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Script
@@ -30,9 +31,13 @@ namespace Assets.Script
         public Text Two;
         public Text Three;
 
+        //Save
+        string path = Path.Combine(Application.dataPath, "Save.json");
+
         // Use this for initialization
         void Start()
         {
+
             //Insert
             ListGlava1 = new List<TextWithVuborsClass>()
             {
@@ -80,7 +85,7 @@ namespace Assets.Script
                 new TextWithVuborsClass()
                 {
                     text = "Їхати ще далеко, а їсти хочется вже, тому",
-                    OneAnswer = "Я подумав про це наперед і взяв з собою перекус. ",
+                    OneAnswer = "Я подумав про це наперед і взяв з собою перекус.",
                     TwoAnswer = "Треба сходити у вагон-ресторан і взяти щось поїсти.",
                     ThreeAnswer = "Я подумав про це наперед і взяв з собою перекус, але забув взяти щось попити.",
                     AddBallExtr = 2,
@@ -101,8 +106,6 @@ namespace Assets.Script
 
             Dialog.text = ListGlava1[0].text + "\n" + "\n";
 
-            Debug.Log(start.Person.kilkBallIntrovert);
-            Debug.Log(start.Person.kilkBallExtovert);
 
         }
 
@@ -166,14 +169,14 @@ namespace Assets.Script
         {
             VuborPanel.gameObject.SetActive(false);
             start.Person.kilkBallIntrovert += ListGlava1[i - 1].AddBallIntr;
-            Debug.Log(start.Person.kilkBallIntrovert);
+            Dialog.text = ListGlava1[i].text + "\n" + "\n";
             i++;
         }
         public void EnterTwo()
         {
             VuborPanel.gameObject.SetActive(false);
             start.Person.kilkBallExtovert += ListGlava1[i - 1].AddBallExtr;
-            Debug.Log(start.Person.kilkBallExtovert);
+            Dialog.text = ListGlava1[i].text + "\n" + "\n";
             i++;
         }
         public void EnterThree()
@@ -181,9 +184,19 @@ namespace Assets.Script
             VuborPanel.gameObject.SetActive(false);
             start.Person.kilkBallIntrovert += ListGlava1[i - 1].AddZagBall;
             start.Person.kilkBallExtovert += ListGlava1[i - 1].AddZagBall;
-            Debug.Log(start.Person.kilkBallIntrovert);
-            Debug.Log(start.Person.kilkBallExtovert);
+            Dialog.text = ListGlava1[i].text + "\n" + "\n";
             i++;
+        }
+
+        public void Save()
+        {
+            Game saveGame = new Game()
+            {
+                idGlav = 1,
+                idText = i - 1
+            };
+
+            File.WriteAllText(path, JsonUtility.ToJson(saveGame));
         }
     }
 }
