@@ -26,9 +26,19 @@ public class StartScript : MonoBehaviour {
 		Person = new GolovniyPerson()
 		{
 			Name = "Річард",
-			colorName = new Color(232, 181, 39),
+			colorName = Color.blue,
 			Year = 25
 		};
+
+		ListPersons = new List<PersonClass>()
+		{
+			new PersonClass()
+			{
+				Name = "Амелія",
+				colorName = Color.cyan,
+				Year = 19
+			}
+        };
 
 		//Insert
 		PrologTexts = new List<TextClass>() 

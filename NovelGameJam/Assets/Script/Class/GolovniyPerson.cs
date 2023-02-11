@@ -7,7 +7,7 @@ namespace Assets.Script.Class
     [Serializable]
     public class GolovniyPerson : PersonClass
     {
-        public int kilkBallExtovert = 0;
-        public int kilkBallIntrovert = 0;
+        public int kilkBallExtovert;
+        public int kilkBallIntrovert;
     }
 }

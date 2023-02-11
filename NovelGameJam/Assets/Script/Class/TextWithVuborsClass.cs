@@ -10,6 +10,9 @@ namespace Assets.Script.Class
         public string OneAnswer;
         public string TwoAnswer;
         public string ThreeAnswer;
+        public int nextIdOne;
+        public int nextIdTwo;
+        public int nextIdThree;
         public int AddBallExtr;
         public int AddBallIntr;
         public int AddZagBall;

@@ -1,4 +1,5 @@
 ﻿using Assets.Script.Class;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +23,8 @@ namespace Assets.Script
         public bool isEnd = false;
         public List<TextWithVuborsClass> ListGlava1 = new List<TextWithVuborsClass>();
         int i;
+        int ballsIntrovert;
+        int ballsExtrovert;
 
         //Vubors
         public GameObject ThreePanel;
@@ -32,6 +35,8 @@ namespace Assets.Script
 
         //Save
         string path = Path.Combine(Application.dataPath, "Save.json");
+        string path1 = Path.Combine(Application.dataPath, "SaveHeroi.json");
+        string path2 = Path.Combine(Application.dataPath, "SavePersons.json");
 
         //Load
         public Load load;
@@ -40,6 +45,8 @@ namespace Assets.Script
         void Start()
         {
             i = load.loadGame.idText;
+            ballsExtrovert = load.loadHeroy.kilkBallExtovert;
+            ballsIntrovert = load.loadHeroy.kilkBallIntrovert;
 
             //Insert
             ListGlava1 = new List<TextWithVuborsClass>()
@@ -150,12 +157,12 @@ namespace Assets.Script
             }
             else
             {
-                if (ListGlava1[i].GolovPerson == null)
+                if (ListGlava1[i].GolovPerson != null)
                 {
                     NameP.text = ListGlava1[i].Person.Name;
                     NameP.color = ListGlava1[i].Person.colorName;
                 }
-                if (ListGlava1[i].Person == null)
+                if (ListGlava1[i].Person != null)
                 {
                     NameP.text = " ";
                 }
@@ -174,22 +181,22 @@ namespace Assets.Script
         public void EnterOne()
         {
             VuborPanel.gameObject.SetActive(false);
-            start.Person.kilkBallIntrovert += ListGlava1[i - 1].AddBallIntr;
+            ballsIntrovert += ListGlava1[i - 1].AddBallIntr;
             i++;
             Dialog.text = ListGlava1[i].text + "\n" + "\n";
         }
         public void EnterTwo()
         {
             VuborPanel.gameObject.SetActive(false);
-            start.Person.kilkBallExtovert += ListGlava1[i - 1].AddBallExtr;
+            ballsExtrovert += ListGlava1[i - 1].AddBallExtr;
             i++;
             Dialog.text = ListGlava1[i].text + "\n" + "\n";
         }
         public void EnterThree()
         {
             VuborPanel.gameObject.SetActive(false);
-            start.Person.kilkBallIntrovert += ListGlava1[i - 1].AddZagBall;
-            start.Person.kilkBallExtovert += ListGlava1[i - 1].AddZagBall;
+            ballsIntrovert += ListGlava1[i - 1].AddZagBall;
+            ballsExtrovert += ListGlava1[i - 1].AddZagBall;
             i++;
             Dialog.text = ListGlava1[i].text + "\n" + "\n";
         }
@@ -199,10 +206,24 @@ namespace Assets.Script
             Game saveGame = new Game()
             {
                 idGlav = 1,
-                idText = i
+                idText = i - 1
+            };
+            GolovniyPerson golovniyPerson = new GolovniyPerson()
+            {
+                Name = load.loadHeroy.Name,
+                Year = load.loadHeroy.Year,
+                colorName = load.loadHeroy.colorName,
+                kilkBallExtovert = ballsExtrovert,
+                kilkBallIntrovert = ballsIntrovert
             };
 
+            Persons persons = new Persons();
+
+            persons.persons = load.loadPersons.persons;
+
             File.WriteAllText(path, JsonUtility.ToJson(saveGame));
+            File.WriteAllText(path1, JsonUtility.ToJson(golovniyPerson));
+            File.WriteAllText(path2, JsonUtility.ToJson(persons));
         }
     }
 }

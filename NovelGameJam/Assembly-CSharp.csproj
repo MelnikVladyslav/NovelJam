@@ -54,6 +54,7 @@
      <Compile Include="Assets\Script\Class\Game.cs" />
      <Compile Include="Assets\Script\Class\GolovniyPerson.cs" />
      <Compile Include="Assets\Script\Class\PersonClass.cs" />
+     <Compile Include="Assets\Script\Class\Persons.cs" />
      <Compile Include="Assets\Script\Class\TextClass.cs" />
      <Compile Include="Assets\Script\Class\TextWithVuborsClass.cs" />
      <Compile Include="Assets\Script\Glava1.cs" />

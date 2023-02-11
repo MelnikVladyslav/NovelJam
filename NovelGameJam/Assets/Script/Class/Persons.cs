@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Script.Class
 {
     [Serializable]
-    public class Game
+    public class Persons
     {
-        public int idGlav;
-        public int idText;
+        public PersonClass[] persons;
     }
 }
