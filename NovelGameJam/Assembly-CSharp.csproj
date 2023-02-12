@@ -60,6 +60,7 @@
      <Compile Include="Assets\Script\Glava1.cs" />
      <Compile Include="Assets\Script\Glava1Load.cs" />
      <Compile Include="Assets\Script\Load.cs" />
+     <Compile Include="Assets\Script\Menu.cs" />
      <Compile Include="Assets\Script\MenuScript.cs" />
      <Compile Include="Assets\Script\StartScript.cs" />
      <None Include="Assets\Fonts\Font 1\OFL.txt" />

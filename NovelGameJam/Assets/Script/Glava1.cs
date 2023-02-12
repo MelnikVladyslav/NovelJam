@@ -23,6 +23,13 @@ namespace Assets.Script
         public bool isEnd = false;
         public List<TextWithVuborsClass> ListGlava1 = new List<TextWithVuborsClass>();
         int i = 1;
+        public List<Texture> textures = new List<Texture>();
+        public RawImage background;
+
+        //Texture persons
+        public RawImage Heroy;
+        public RawImage Person1;
+        public List<Texture> texturesPersons = new List<Texture>();
 
         //Vubors
         public GameObject ThreePanel;
@@ -36,6 +43,13 @@ namespace Assets.Script
         string path1 = Path.Combine(Application.dataPath, "SaveHeroi.json");
         string path2 = Path.Combine(Application.dataPath, "SavePersons.json");
 
+        //Timing
+        public GameObject TimingPanel;
+        public Text TimText;
+
+        //EndGame
+        public GameObject EndGame;
+
         // Use this for initialization
         void Start()
         {
@@ -46,7 +60,7 @@ namespace Assets.Script
                 //0
                 new TextWithVuborsClass()
                 {
-                    text = "Всім привіт. Мене звати Річард, але можна просто - Рік. Мені 25, я працюю фінансовим аналітиком в Рівному."
+                    text = "Всім привіт. Мене звати Річард, але можна просто - Рік. Мені 20, я працюю фінансовим аналітиком в Рівному."
                 },
                 //1
                 new TextWithVuborsClass()
@@ -56,7 +70,7 @@ namespace Assets.Script
                 //2
                 new TextWithVuborsClass()
                 {
-                    text = "Бо мені не треба спілкуватися з людьми, щоб робити свою роботу. Я навіть живу сам. Не дуже люблю увагу."
+                    text = "Да і чимось зв’язана з тим, на кого вчусь. Живу я сам. Не дуже люблю увагу. Робота допомагає скоротати час, і дає змогу спокійно жити, не залежачи від батьків."
                 },
                 //3
                 new TextWithVuborsClass()
@@ -76,12 +90,12 @@ namespace Assets.Script
                 //6
                 new TextWithVuborsClass()
                 {
-                    text = "Я взяв відпустку, щоб облаштуватися там і вирішити, що далі робити з роботою. Бо їхати далеко, а в селі дуже сумніваються що нормальна робота є."
+                    text = "Сесію я здав, маю канікули, тому я взяв відпустку, щоб облаштуватися там і вирішити, як далі вчинити з роботою. Навчання дистанційне, навіть коли обмеження спали, тому сумніваюсь, що щось зміниться ближчим часом. А питання з роботою відкрите, бо їхати з мого міста в село далеко, а в ньому сумніваюся що знайду нормальну роботу."
                 },
                 //7
                 new TextWithVuborsClass()
                 {
-                    text = "Їду я поки поїздом, так швидше і дешевше вийде. Хоча потім прийдеться далеко йти…"
+                    text = "Їду я поїздом, так швидше і дешевше виходить. Проте, потім прийдеться далеко йти… Але нічого, іноді потрібно."
                 },
                 //8
                 new TextWithVuborsClass()
@@ -130,8 +144,8 @@ namespace Assets.Script
                     AddBallExtr = 2,
                     AddBallIntr = 2,
                     AddZagBall = 1,
-                    nextIdThree = 21
-                    //nextIdOne = 
+                    nextIdThree = 21,
+                    nextIdOne = 62
                 },
                 //15
                 new TextWithVuborsClass()
@@ -233,7 +247,7 @@ namespace Assets.Script
                 new TextWithVuborsClass()
                 {
                     Person = start.ListPersons[0],
-                    text = "—19. Не звертай уваги, люблю подурачитись."
+                    text = "—18. Не звертай уваги, люблю подурачитись."
                 },
                 //32
                 new TextWithVuborsClass()
@@ -274,6 +288,295 @@ namespace Assets.Script
                 {
                     text = "Той самий момент із Котом в черевиках, який використовує свій спеціальний погляд, щоб відволікти увагу."
                 },
+                //39
+                new TextWithVuborsClass()
+                {
+                    GolovPerson = start.Person,
+                    text = "—20 мені. Не дивись на мене так..."
+                },
+                //40
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—От так би й одразу!"
+                },
+                //41
+                new TextWithVuborsClass()
+                {
+                    text = "Вона взяла свій сік, і перш ніж відкрити, продовжила"
+                },
+                //42
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Не дивитись так... А якщо буду, то що?"
+                },
+                //43
+                new TextWithVuborsClass()
+                {
+                    GolovPerson = start.Person,
+                    text = "—Ой, та ну тебе"
+                },
+                //44
+                new TextWithVuborsClass()
+                {
+                    text = "Не придумав я нічого краще, ніж наіграно образитись. Здається, вона подавилась соком від сміху..."
+                },
+                //45
+                new TextWithVuborsClass()
+                {
+                    text = "через кілька годин"
+                },
+                //46
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Ріку, прокидайся, за 5 хвилин наша зупинка!"
+                },
+                //47
+                new TextWithVuborsClass()
+                {
+                    text = "Почув і не зрозумів де я і що відбувається взагалі"
+                },
+                //48
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Ріку, я зараз тебе водою обіллю, щоб прокинувсь! Тобі ще речі зібрати треба. Телефон не віддам поки не зберешся!"
+                },
+                //49
+                new TextWithVuborsClass()
+                {
+                    text = "Я відкрив очі і  побачивши повністю зібрану дівчину згадав події останніх годин."
+                },
+                //50
+                new TextWithVuborsClass()
+                {
+                    GolovPerson = start.Person,
+                    text = "—Йой, дякую, Амелі!"
+                },
+                //51
+                new TextWithVuborsClass()
+                {
+                    text = "Вигляд зібраної дівчини з моїм телефоном в руках придав мені неабиякого прискорення"
+                },
+                //52
+                new TextWithVuborsClass()
+                {
+                    GolovPerson = start.Person,
+                    text = "—Вибач, не пам’ятаю в який момент мене в сон потягнуло…"
+                },
+                //53
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Нуж-бо, нуж-бо, збирайся! А заснув ти, коли я побігла воду купувати. До речі, з телефоном в руках…"
+                },
+                //54
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Ти щось писав в нотатках, здається, але я не читала. Поділишся, що ж там такого “цікавого” було?"
+                },
+                //55
+                new TextWithVuborsClass()
+                {
+                    text = "Я завис, згадуючи, що писав. І як добре, що вона не читала…"
+                },
+                //56
+                new TextWithVuborsClass()
+                {
+                    GolovPerson = start.Person,
+                    text = "—Може, якось потім… Добре, ходімо, я зібрався"
+                },
+                //57
+                new TextWithVuborsClass()
+                {
+                    text = "Я взяв рюкзак в руку і на ходу забрав свій телефон з рук дівчини, підганяючи її в бік виходу з вагону."
+                },
+                //58
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Куртку хоч вдягни. Тут холодно вранці"
+                },
+                //59
+                new TextWithVuborsClass()
+                {
+                    text = "Не зупиняючись, вона озирнулась на мене в одній футболці із курткою в руках"
+                },
+                //60
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Захворієш ще…",
+                    nextId = 72
+                },
+                //61
+                new TextWithVuborsClass()
+                {
+                    text = "через деякий час"
+                },
+                //62
+                new TextWithVuborsClass()
+                {
+                    text = "Я подивився на дівчину і видохнув. Щось в мені боролося і кричало про те, що я поступив неправильно."
+                },
+                //63
+                new TextWithVuborsClass()
+                {
+                    text = "Дівчина побачила мої терзання і посміхнулась."
+                },
+                //64
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Спробуємо ще раз? Амелія. 18 років. Їду до рідних"
+                },
+                //65
+                new TextWithVuborsClass()
+                {
+                    text = "Вона протягнула руку для знайомства."
+                },
+                //66
+                new TextWithVuborsClass()
+                {
+                    GolovPerson = start.Person,
+                    text = "—Річард, 20"
+                },
+                //67
+                new TextWithVuborsClass()
+                {
+                    text = "Я пожав руку"
+                },
+                //68
+                new TextWithVuborsClass()
+                {
+                    GolovPerson = start.Person,
+                    text = "—Їду облаштовуватись. Вибач за поведінку, трохи не звик до спілкування і не в настрої. Будеш?"
+                },
+                //69
+                new TextWithVuborsClass()
+                {
+                    text = "В знак примирення — я протягнув шоколадку їй і вона з радістю взяла шматочок."
+                },
+                //70
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Згодна",
+                    nextId = 23
+                },
+                //71
+                new TextWithVuborsClass()
+                {
+                    text = "Ми вийшли з вагону і вдвох пішли в сторону села. Розбалакавшись, ми не помітили купку хлопців, що стояли неподалік."
+                },
+                //72
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—..Так, уявляєш..!"
+                },
+                //73
+                new TextWithVuborsClass()
+                {
+                    text = "Вона продовжувала розповідати про навчання, коли нас різко перервали."
+                },
+                //74
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[1],
+                    text = "—Вау, Амелія йде до батьків і не сама."
+                },
+                //75
+                new TextWithVuborsClass()
+                {
+                    text = "Я не зрозумів хто то сказав з усіх тих хлопців, які вдруг почали йти в нашу сторону, але відчув як дівчина напряглась і її настрій різко зник. А я з цікавістю подивився на компанію."
+                },
+                //76
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Рік, ідем. Не звертай уваги на них"
+                },
+                //77
+                new TextWithVuborsClass()
+                {
+                    text = "Вона не піднімала очей і дуже хотіла піти. А я думав що робити."
+                },
+                //75
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[1],
+                    text = "—Значить, Рік? Андрій - її гарний знайомий. Приємно познайомитися"
+                },
+                //78
+                new TextWithVuborsClass()
+                {
+                    text = "Я не бачив людину, яка говорила. Він стояв у тіні, а ввечері це давало свій ефект. Але я явно відчував, що він скалився."
+                },
+                //79
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Андрій, відчепись. Я вже тобі все сказала"
+                },
+                //80
+                new TextWithVuborsClass()
+                {
+                    text = "Чи мені здалось, чи вона готова влізти в суперечку, судячи з реакції її тіла…"
+                },
+                //81
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[1],
+                    text = "—Я не з тобою балакаю, Амелія. Поки що. Тож, Рік?"
+                },
+                //82
+                new TextWithVuborsClass()
+                {
+                    GolovPerson = start.Person,
+                    text = "—Рік"
+                },
+                //83
+                new TextWithVuborsClass()
+                {
+                    text = "Я підійшов ближче, заводячи рукою нову знайому за спину."
+                },
+                //84
+                new TextWithVuborsClass()
+                {
+                    GolovPerson = start.Person,
+                    text = "—Може вийдеш з тіні і побалакаємо так?"
+                },
+                //85
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[1],
+                    text = "—Ти не знаєш куди лізеш. Іди поки не пізно"
+                },
+                //86
+                new TextWithVuborsClass()
+                {
+                    text = "Він явно насміхався."
+                },
+                //87
+                new TextWithVuborsClass()
+                {
+                    Person = start.ListPersons[0],
+                    text = "—Рік, іди. Він правий"
+                },
+                //88
+                new TextWithVuborsClass()
+                {
+                    text = "Я задумався. Піти собі нікуди не влазячи, чи розібратись в ситуації, яка так не подобається моїй можливій сусідці, яка за час знайомства показала себе позитивною людиною? А зараз була дуже напряженною…"
+                },
+                //89
+                new TextWithVuborsClass()
+                {
+                    text = "Як взагалі виглядає цей Андрій, що він з себе представляє, чи знають що за знайомі в Амелії її батьки? І як взагалі далі відбуватиметься моє життя в цьому місці? Хто я все-таки - інтроверт чи екстраверт?"
+                },
             };
 
             Dialog.text = ListGlava1[0].text + "\n" + "\n";
@@ -304,6 +607,52 @@ namespace Assets.Script
                 ThreePanel.gameObject.SetActive(true);
                 Three.text = ListGlava1[i - 1].ThreeAnswer;
             }
+
+            //Timing
+            if (i == 10 || i == 62)
+            {
+                TimingPanel.gameObject.SetActive(true);
+                TimText.text = ListGlava1[i - 1].text;
+                i++;
+                Dialog.text = ListGlava1[i].text;
+            }
+
+            //Background
+            if ((i >= 0 && i <= 10) || i >= 72)
+            {
+                background.texture = textures[0];
+            }
+            if (i >= 10 && i <= 60)
+            {
+                background.texture = textures[1];
+            }
+
+            //Next
+            if (ListGlava1[i].nextId != 0)
+            {
+                i = ListGlava1[i].nextId;
+            }
+
+            //Textures persons
+            if (i == 14 || (i >= 16 && i <= 44) || i >= 47)
+            {
+                Person1.gameObject.SetActive(true);
+                Person1.texture = texturesPersons[1];
+            }
+            else
+            {
+                Person1.gameObject.SetActive(false);
+            }
+
+            if (i >= 16 && i <= 44 || i >= 47)
+            {
+                Heroy.gameObject.SetActive(true);
+                Heroy.texture = texturesPersons[0];
+            }
+            else
+            {
+                Heroy.gameObject.SetActive(false);
+            }
         }
 
         public void NextGlava1()
@@ -313,6 +662,8 @@ namespace Assets.Script
                 TextPanel.gameObject.SetActive(false);
 
                 isEnd = true;
+
+                EndGame.gameObject.SetActive(true);
             }
             else
             {

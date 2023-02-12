@@ -27,17 +27,25 @@ public class StartScript : MonoBehaviour {
 		{
 			Name = "Річард",
 			colorName = Color.blue,
-			Year = 25
+			Year = 20
 		};
 
 		ListPersons = new List<PersonClass>()
 		{
+			//0
 			new PersonClass()
 			{
 				Name = "Амелія",
 				colorName = Color.cyan,
-				Year = 19
-			}
+				Year = 18
+			},
+			//1
+            new PersonClass()
+            {
+                Name = "Андрій",
+                colorName = Color.red,
+                Year = 10
+            }
         };
 
 		//Insert
