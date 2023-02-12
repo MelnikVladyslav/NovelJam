@@ -34,6 +34,7 @@ namespace Assets.Script
         //Vubors
         public GameObject ThreePanel;
         public GameObject VuborPanel;
+        public Text textVubor;
         public Text One;
         public Text Two;
         public Text Three;
@@ -60,7 +61,7 @@ namespace Assets.Script
                 //0
                 new TextWithVuborsClass()
                 {
-                    text = "Всім привіт. Мене звати Річард, але можна просто - Рік. Мені 20, я працюю фінансовим аналітиком в Рівному."
+                    text = "Всім привіт. Мене звати Річард, але можна просто - Рік. Мені 20, я вчуся на економіста, на очній формі навчання. Але через карантин ми перейшли на дистанційне і в мене є змога підробляти фінансовим аналітиком у Рівному"
                 },
                 //1
                 new TextWithVuborsClass()
@@ -95,7 +96,7 @@ namespace Assets.Script
                 //7
                 new TextWithVuborsClass()
                 {
-                    text = "Їду я поїздом, так швидше і дешевше виходить. Проте, потім прийдеться далеко йти… Але нічого, іноді потрібно."
+                    text = "А питання з роботою відкрите, бо їхати з мого міста в село далеко, а в ньому сумніваюся що знайду нормальну роботу.Їду я поїздом, так швидше і дешевше виходить. Проте, потім прийдеться далеко йти… Але нічого, іноді потрібно."
                 },
                 //8
                 new TextWithVuborsClass()
@@ -403,7 +404,7 @@ namespace Assets.Script
                 //59
                 new TextWithVuborsClass()
                 {
-                    text = "Не зупиняючись, вона озирнулась на мене в одній футболці із курткою в руках"
+                    text = "Не зупиняючись, вона озирнулась на мене в одній кофті із курткою в руках"
                 },
                 //60
                 new TextWithVuborsClass()
@@ -601,6 +602,8 @@ namespace Assets.Script
                 VuborPanel.gameObject.SetActive(true);
                 One.text = ListGlava1[i - 1].OneAnswer;
                 Two.text = ListGlava1[i - 1].TwoAnswer;
+                textVubor.text = ListGlava1[i - 1].text;
+                Dialog.text = " ";
             }
             if (ListGlava1[i - 1].ThreeAnswer != null && ListGlava1[i - 1].ThreeAnswer != "")
             {
@@ -613,18 +616,21 @@ namespace Assets.Script
             {
                 TimingPanel.gameObject.SetActive(true);
                 TimText.text = ListGlava1[i - 1].text;
-                i++;
                 Dialog.text = ListGlava1[i].text;
             }
 
             //Background
-            if ((i >= 0 && i <= 10) || i >= 72)
+            if ((i >= 0 && i <= 10))
             {
                 background.texture = textures[0];
             }
             if (i >= 10 && i <= 60)
             {
                 background.texture = textures[1];
+            }
+            if (i >= 72)
+            {
+                background.texture = textures[2];
             }
 
             //Next
@@ -634,7 +640,7 @@ namespace Assets.Script
             }
 
             //Textures persons
-            if (i == 14 || (i >= 16 && i <= 44) || i >= 47)
+            if (i == 14 || (i >= 16 && i <= 47))
             {
                 Person1.gameObject.SetActive(true);
                 Person1.texture = texturesPersons[1];
@@ -644,7 +650,7 @@ namespace Assets.Script
                 Person1.gameObject.SetActive(false);
             }
 
-            if (i >= 16 && i <= 44 || i >= 47)
+            if (i >= 16 && i <= 47)
             {
                 Heroy.gameObject.SetActive(true);
                 Heroy.texture = texturesPersons[0];
@@ -653,6 +659,11 @@ namespace Assets.Script
             {
                 Heroy.gameObject.SetActive(false);
             }
+        }
+
+        public void Plus()
+        {
+            i++;
         }
 
         public void NextGlava1()
