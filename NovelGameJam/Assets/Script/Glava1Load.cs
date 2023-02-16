@@ -652,7 +652,7 @@ namespace Assets.Script
             }
 
             //Textures persons
-            if (i == 14 || (i >= 16 && i <= 47))
+            if (i == 14 || (i >= 16 && i <= 47 && i >= 47))
             {
                 Person1.gameObject.SetActive(true);
                 Person1.texture = texturesPersons[1];
@@ -662,7 +662,7 @@ namespace Assets.Script
                 Person1.gameObject.SetActive(false);
             }
 
-            if (i >= 16 && i <= 47)
+            if (i >= 16 && i <= 47 && i >= 47)
             {
                 Heroy.gameObject.SetActive(true);
                 Heroy.texture = texturesPersons[0];
